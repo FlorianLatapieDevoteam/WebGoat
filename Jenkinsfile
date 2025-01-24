@@ -18,7 +18,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'MY_BUILD_VARIABLE', variable: 'MY_BUILD_VARIABLE')]) {
                         // Afficher les variables dans la console (Attention : ne pas afficher de secrets en production)
                         echo "La valeur de MY_VARIABLE est : ${env.MY_VARIABLE}"
-                        echo -n "La valeur de MY_BUILD_VARIABLE est : ${MY_BUILD_VARIABLE}" | base64
+                        sh 'echo -n "La valeur de MY_BUILD_VARIABLE est : ${MY_BUILD_VARIABLE}" | base64'
                     }
                 }
             }
