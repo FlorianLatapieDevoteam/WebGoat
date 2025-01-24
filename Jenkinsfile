@@ -3,7 +3,7 @@ pipeline {
         // Déclaration de la variable d'environnement
         MY_VARIABLE = "Bonjour, ceci est une variable définie dans l'environnement du build !"
     }
-
+    agent any
     stages {
 
         stage('Afficher la variable') {
