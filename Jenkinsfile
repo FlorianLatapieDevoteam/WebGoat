@@ -14,9 +14,12 @@ pipeline {
         stage('Afficher la variable') {
             steps {
                 script {
-                    // Afficher la variable dans la console
-                    echo "La valeur de MY_VARIABLE est : ${env.MY_VARIABLE}"
-                    echo "La valeur de MY_BUILD_VARIABLE est : ${MY_BUILD_VARIABLE}"
+                    // Utilisation sécurisée de la variable secrète
+                    withCredentials([string(credentialsId: 'MY_BUILD_VARIABLE', variable: 'MY_BUILD_VARIABLE')]) {
+                        // Afficher les variables dans la console (Attention : ne pas afficher de secrets en production)
+                        echo "La valeur de MY_VARIABLE est : ${env.MY_VARIABLE}"
+                        echo "La valeur de MY_BUILD_VARIABLE est : ${MY_BUILD_VARIABLE}"
+                    }
                 }
             }
         }
