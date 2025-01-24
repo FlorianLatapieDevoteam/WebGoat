@@ -16,7 +16,7 @@ pipeline {
                 script {
                     // Afficher la variable dans la console
                     echo "La valeur de MY_VARIABLE est : ${env.MY_VARIABLE}"
-                    echo "La valeur de MY_BUILD_VARIABLE est : ${env.MY_BUILD_VARIABLE}"
+                    echo "La valeur de MY_BUILD_VARIABLE est : ${MY_BUILD_VARIABLE}"
                 }
             }
         }
