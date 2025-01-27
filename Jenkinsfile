@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Checkmarx AST analysis') {
             steps {
-                checkmarxASTScanner additionalOptions: '--threshold "sast-high=10; sast-medium=20; sca-high=10" --report-format sarif --output-path "${JENKINS_HOME}/workspace/${JOB_NAME}/" --output-name "help"', baseAuthUrl: '', branchName: 'main', checkmarxInstallation: 'CxOne', credentialsId: 'JenkinsSecurityGates', projectName: 'WebGoat Florian', serverUrl: '', tenantName: '', useOwnAdditionalOptions: true
+                checkmarxASTScanner additionalOptions: "--threshold \"sast-high=10; sast-medium=20; sca-high=10\"  --report-format sarif  --output-name \"help\"", baseAuthUrl: '', branchName: 'main', checkmarxInstallation: 'CxOne', credentialsId: 'JenkinsSecurityGates', projectName: 'WebGoat Florian', serverUrl: '', tenantName: '', useOwnAdditionalOptions: true
             }
         }
     }
